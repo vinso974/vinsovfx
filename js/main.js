@@ -151,7 +151,7 @@
   var filterBtns = document.querySelectorAll('.filter-btn');
   var works = Array.prototype.slice.call(document.querySelectorAll('.work'));
   var countEl = document.getElementById('works-count');
-  var catNames = { clip: 'clip(s)', photo: 'visuel(s) photo', pochette: 'pochette(s) d\u2019album', video: 'vid\u00e9o(s) commerciale(s)' };
+  var catNames = { clip: 'clip(s)', photo: 'visuel(s) photo', pochette: 'pochette(s) d\u2019album', video: 'vidéo(s)' };
 
   function updateCount(filter) {
     var visible = works.filter(function (w) { return !w.classList.contains('is-hidden'); });

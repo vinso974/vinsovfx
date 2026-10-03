@@ -254,9 +254,11 @@
       } else if (type === 'local-video') {
         var src = work.getAttribute('data-src');
         var cardVideo = btn.querySelector('video');
+        var cardImg = btn.querySelector('img');
+        var poster = (cardVideo && cardVideo.poster) ? cardVideo.poster : (cardImg ? (cardImg.currentSrc || cardImg.src) : '');
         videoTitle.textContent = title.toUpperCase();
         videoPlayer.innerHTML = '<video src="' + src + '" controls autoplay loop playsinline' +
-          (cardVideo && cardVideo.poster ? ' poster="' + cardVideo.poster + '"' : '') + '></video>';
+          (poster ? ' poster="' + poster + '"' : '') + '></video>';
         openOverlay(videoOverlay);
       } else {
         var img = btn.querySelector('img');

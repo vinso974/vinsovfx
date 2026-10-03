@@ -35,20 +35,41 @@
   // Sécurité : jamais bloquer plus de 4 s
   setTimeout(function () { clearInterval(tick); finishPreloader(); }, 4000);
 
-  /* ---------- Timecodes live (25 i/s) ---------- */
-  var tcHeader = document.getElementById('timecode-header');
-  var tcHero = document.getElementById('timecode-hero');
-  var start = Date.now();
+  /* ---------- Heure locale + météo (sans géolocalisation) ---------- */
+  var ltHeader = document.getElementById('local-time-header');
+  var ltHero = document.getElementById('local-time-hero');
+  var lwHeader = document.getElementById('local-weather-header');
+  var lwHero = document.getElementById('local-weather-hero');
   function pad(n) { return (n < 10 ? '0' : '') + n; }
-  function updateTC() {
-    var el = (Date.now() - start) / 1000;
-    var f = Math.floor((el % 1) * 25);
-    var s = Math.floor(el % 60), m = Math.floor(el / 60 % 60), h = Math.floor(el / 3600);
-    var str = pad(h) + ':' + pad(m) + ':' + pad(s) + ':' + pad(f);
-    if (tcHeader) tcHeader.textContent = str;
-    if (tcHero) tcHero.textContent = str;
+  function updateClock() {
+    var d = new Date();
+    var str = pad(d.getHours()) + ':' + pad(d.getMinutes());
+    if (ltHeader) ltHeader.textContent = str;
+    if (ltHero) ltHero.textContent = str;
   }
-  if (!reduceMotion) setInterval(updateTC, 40); else updateTC();
+  updateClock();
+  setInterval(updateClock, 20000);
+  /* Météo : ville approximative via l'adresse IP (aucune permission demandée), données Open-Meteo */
+  var WMO = {0:'Dégagé',1:'Éclaircies',2:'Nuageux',3:'Couvert',45:'Brouillard',48:'Brouillard',51:'Bruine',53:'Bruine',55:'Bruine',56:'Bruine verglaçante',57:'Bruine verglaçante',61:'Pluie',63:'Pluie',65:'Pluie',66:'Pluie verglaçante',67:'Pluie verglaçante',71:'Neige',73:'Neige',75:'Neige',77:'Neige',80:'Averses',81:'Averses',82:'Averses',85:'Neige',86:'Neige',95:'Orage',96:'Orage',99:'Orage'};
+  function setWeather(txt) {
+    if (lwHeader) lwHeader.textContent = txt;
+    if (lwHero) lwHero.textContent = txt;
+  }
+  function updateWeather() {
+    if (!('fetch' in window)) return;
+    fetch('https://ipapi.co/json/').then(function (r) { return r.json(); }).then(function (loc) {
+      if (!loc || !loc.latitude || !loc.longitude) throw 0;
+      var city = loc.city || '';
+      return fetch('https://api.open-meteo.com/v1/forecast?latitude=' + loc.latitude + '&longitude=' + loc.longitude + '&current=temperature_2m,weather_code&timezone=auto').then(function (r) { return r.json(); }).then(function (w) {
+        if (!w || !w.current) throw 0;
+        var t = Math.round(w.current.temperature_2m);
+        var label = WMO[w.current.weather_code] || '';
+        setWeather((city ? city + ' · ' : '') + t + '°' + (label ? ' · ' + label : ''));
+      });
+    }).catch(function () { /* météo indisponible : on garde juste l'heure */ });
+  }
+  updateWeather();
+  setInterval(updateWeather, 1800000);
 
   /* ---------- Marquee : duplication pour boucle infinie ---------- */
   var track = document.getElementById('marquee-track');

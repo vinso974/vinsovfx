@@ -323,6 +323,8 @@ a:hover { color: var(--ambre); }
   .works-grid { grid-template-columns: 1fr; }
   .works-list .work { grid-template-columns: 1fr; }
   .works-list .work-media { aspect-ratio: 16 / 9; }
+  .header-meta { gap: 8px; }
+  .local-weather, .local-time { font-size: 0.72rem; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 

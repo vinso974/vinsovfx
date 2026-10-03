@@ -90,6 +90,7 @@ a:hover { color: var(--ambre); }
 .rec { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--rec); }
 .rec .rec-dot { width: 9px; height: 9px; }
 .local-time { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.1em; color: var(--ambre); font-variant-numeric: tabular-nums; }
+.timecode { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.1em; color: var(--ambre); font-variant-numeric: tabular-nums; }
 .local-weather { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.04em; color: var(--clap); white-space: nowrap; }
 .local-weather:empty { display: none; }
 
@@ -127,8 +128,7 @@ a:hover { color: var(--ambre); }
 .hero-sub { font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: var(--pellicule); opacity: 0.92; margin: 0 0 34px; max-width: 34em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
 .hero-meta { display: flex; align-items: center; gap: 22px; margin-top: 44px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.18em; color: var(--clap); }
-.hero-meta .local-time { font-size: 1rem; }
-.hero-meta .local-weather { font-size: 1rem; }
+.hero-meta .timecode { font-size: 1rem; }
 
 .btn { display: inline-block; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; transition: transform 0.15s, background 0.2s, color 0.2s; cursor: pointer; border: 1px solid transparent; }
 .btn-primary { background: var(--rec); color: #fff; }
@@ -323,7 +323,6 @@ a:hover { color: var(--ambre); }
   .works-grid { grid-template-columns: 1fr; }
   .works-list .work { grid-template-columns: 1fr; }
   .works-list .work-media { aspect-ratio: 16 / 9; }
-  .header-meta .local-weather { display: none; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 

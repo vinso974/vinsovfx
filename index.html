@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIN'SO VFX — Vidéaste &amp; réalisateur · Clips, films de marque &amp; VFX</title>
+  <meta name="description" content="VIN'SO VFX — vidéaste &amp; réalisateur. Clips musicaux, films de marque, VFX et compositing, étalonnage, montage. Pour artistes, marques et entreprises. Basé au Mans, disponible partout.">
+  <meta name="theme-color" content="#0B0B0D">
+  <link rel="canonical" href="https://www.vinsovfx.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="VIN'SO VFX — Vidéaste &amp; réalisateur">
+  <meta property="og:description" content="Clips, films de marque et VFX. Pour artistes, marques et entreprises. Basé au Mans, disponible partout.">
+  <meta property="og:url" content="https://www.vinsovfx.com/">
+  <meta property="og:image" content="https://www.vinsovfx.com/assets/img/real-strawberry-hq.jpg">
+  <link rel="icon" href="assets/logo.svg?v=3" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "VIN'SO VFX",
+    "description": "Vidéaste & réalisateur : clips musicaux, films de marque, VFX et compositing, étalonnage, montage.",
+    "email": "vinsovfx@gmail.com",
+    "areaServed": "France",
+    "address": { "@type": "PostalAddress", "addressLocality": "Le Mans", "addressCountry": "FR" },
+    "sameAs": ["https://www.instagram.com/vinso.974"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- Préloader : barre de rendu -->
+  <div id="preloader" role="status" aria-label="Chargement du site">
+    <div class="preloader-inner">
+      <div class="preloader-logo" aria-hidden="true">VIN'SO <span class="rec-dot"></span></div>
+      <div class="preloader-disciplines" id="preloader-disciplines" aria-hidden="true">RÉALISATION</div>
+      <div class="preloader-bar"><div class="preloader-fill" id="preloader-fill"></div></div>
+      <div class="preloader-meta"><span>RENDER</span><span id="preloader-pct">0%</span></div>
+    </div>
+  </div>
+  <noscript><style>#preloader{display:none}</style></noscript>
+
+  <!-- En-tête -->
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#hero" aria-label="VIN'SO VFX — retour en haut">
+      <img src="assets/logo.svg?v=3" alt="VIN'SO VFX" width="132" height="36">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="#realisations">Réalisations</a>
+      <a href="#services">Services</a>
+      <a href="#processus">Processus</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-meta">
+      <span class="rec" aria-hidden="true"><span class="rec-dot"></span>REC</span>
+      <span class="timecode" id="timecode-header" aria-hidden="true">00:00:00:00</span>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero" aria-label="Présentation">
+      <div class="hero-stage" id="hero-stage">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-fallback" id="hero-fallback" aria-hidden="true"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="viewfinder" aria-hidden="true">
+          <span class="vf-corner tl"></span><span class="vf-corner tr"></span>
+          <span class="vf-corner bl"></span><span class="vf-corner br"></span>
+        </div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-kicker"><span class="rec-dot" aria-hidden="true"></span> STUDIO DE PRODUCTION — LE MANS</p>
+        <h1 class="hero-title">Vidéaste &amp; réalisateur<br><span class="hero-title-accent">clips, films de marque &amp; VFX</span></h1>
+        <p class="hero-sub">Pour artistes, marques et entreprises.<br>Basé au Mans, disponible partout.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#realisations">Voir les réalisations</a>
+          <a class="btn btn-ghost" href="mailto:vinsovfx@gmail.com?subject=Demande%20de%20devis%20—%20VIN'SO%20VFX">Demander un devis</a>
+        </div>
+        <div class="hero-meta">
+          <span class="timecode" id="timecode-hero">00:00:00:00</span>
+          <span class="hero-plan" id="hero-plan">PLAN 01 — TRAVELLING</span>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#realisations" aria-label="Défiler vers les réalisations">
+        <span aria-hidden="true"></span> DÉFILER
+      </a>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track">
+        <span>RÉALISATION</span><i>•</i><span>CLIPS MUSICAUX</span><i>•</i><span>VFX &amp; COMPOSITING</span><i>•</i><span>ÉTALONNAGE</span><i>•</i><span>MONTAGE</span><i>•</i><span>MOTION DESIGN</span><i>•</i><span>PHOTO PRODUIT</span><i>•</i><span>POCHETTES D'ALBUM</span><i>•</i>
+      </div>
+    </div>
+
+    <!-- ============ ANATOMIE ============ -->
+    <section class="scrollvid" id="anatomie" data-src="assets/vid/anatomie-camera.mp4" aria-label="Caméra de cinéma qui se déconstruit au défilement">
+      <h2 class="sr-only">Démontez la caméra</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="assets/img/anatomie-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="assets/vid/anatomie-camera.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-caption" aria-hidden="true">
+          <div class="caption-inner">
+            <p class="caption-text">Le rendu cinéma naît d'un grand capteur et d'une optique lumineuse.</p>
+            <span class="caption-scan"></span>
+          </div>
+        </div>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ ENTRAILLES ============ -->
+    <section class="scrollvid" id="entrailles" data-src="assets/vid/entrailles-a.mp4" data-src2="assets/vid/entrailles-b.mp4" data-split="0.5" aria-label="Plongée dans les entrailles de la caméra au défilement">
+      <h2 class="sr-only">Dans les entrailles de la caméra</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="assets/img/entrailles-a-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="assets/vid/entrailles-a.mp4" type="video/mp4">
+        </video>
+        <video class="scrollvid-video" muted playsinline preload="none" poster="assets/img/entrailles-b-poster.webp" aria-hidden="true" disablepictureinpicture style="opacity:0">
+          <source src="assets/vid/entrailles-b.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-caption" aria-hidden="true">
+          <div class="caption-inner">
+            <p class="caption-text">Le cœur électronique de la caméra.</p>
+            <span class="caption-scan"></span>
+          </div>
+        </div>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ CAPTEUR ============ -->
+    <section class="scrollvid" id="capteur" data-src="assets/vid/capteur.mp4" aria-label="Le capteur de la caméra en gros plan au défilement">
+      <h2 class="sr-only">L'œil — le capteur</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="assets/img/capteur-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="assets/vid/capteur.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-caption" aria-hidden="true">
+          <div class="caption-inner">
+            <p class="caption-text">Le capteur transforme la lumière en image.</p>
+            <span class="caption-scan"></span>
+          </div>
+        </div>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ RÉALISATIONS ============ -->
+    <section class="section" id="realisations" aria-labelledby="titre-realisations">
+      <div class="section-head">
+        <p class="section-kicker">SÉQUENCE 01 — PORTFOLIO</p>
+        <h2 class="section-title" id="titre-realisations">Réalisations</h2>
+        <p class="section-intro">Photo commerciale, pochettes d'album, publicités animées et clips musicaux. Cliquez pour agrandir — rien ne vous fait quitter la page.</p>
+      </div>
+
+      <div class="works-toolbar">
+        <div class="filters" role="group" aria-label="Filtrer les réalisations">
+          <button class="filter-btn is-active" data-filter="all" aria-pressed="true">Tout</button>
+          <button class="filter-btn" data-filter="photo" aria-pressed="false">Photo</button>
+          <button class="filter-btn" data-filter="pochette" aria-pressed="false">Pochettes</button>
+          <button class="filter-btn" data-filter="video" aria-pressed="false">Vidéo</button>
+          <button class="filter-btn" data-filter="clip" aria-pressed="false">Clips</button>
+        </div>
+        <div class="view-toggle" role="group" aria-label="Mode d'affichage">
+          <button class="view-btn is-active" data-view="grid" aria-pressed="true" aria-label="Affichage grille">▦</button>
+          <button class="view-btn" data-view="list" aria-pressed="false" aria-label="Affichage liste">☰</button>
+        </div>
+      </div>
+
+      <p class="works-count mono" id="works-count" aria-live="polite"></p>
+
+      <div class="works-group" data-group="photo">
+        <h3 class="works-sub"><strong>Réalisations photo</strong> — Commerciale</h3>
+        <div class="works works-grid">
+<article class="work" data-cat="photo" data-type="image" data-title="Strawberry Ice Cream — visuel produit">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/real-strawberry-hq.jpg?v=2" alt="Visuel produit Strawberry Ice Cream : esquimau à la fraise croqué, fraises et éclaboussures" loading="lazy" decoding="async" width="1179" height="1179">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>Strawberry Ice Cream</h3>
+            <p class="mono work-meta">VISUEL PRODUIT · COMPOSITING</p>
+          </div>
+        </article>
+<article class="work" data-cat="photo" data-type="image" data-title="POKKA melon — visuel produit">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/real-pokka-melon-entier.jpg?v=2" alt="Visuel produit POKKA : canette posée sur un melon entier, tranche en suspension" loading="lazy" decoding="async" width="1179" height="1142">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>POKKA — Melon</h3>
+            <p class="mono work-meta">VISUEL PRODUIT · COMPOSITING</p>
+          </div>
+        </article>
+<article class="work" data-cat="photo" data-type="image" data-title="ABU FRUITY — visuel produit">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/real-abu-fruity.jpg?v=2" alt="Visuel produit ABU FRUITY : brique de jus multifruit, éclaboussures d'orange" loading="lazy" decoding="async" width="1179" height="781">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>ABU FRUITY</h3>
+            <p class="mono work-meta">VISUEL PRODUIT · RETOUCHE</p>
+          </div>
+        </article>
+<article class="work" data-cat="photo" data-type="image" data-title="MUSC — visuel produit">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/real-musc-parfum.jpg?v=2" alt="Visuel produit pour le parfum MUSC" loading="lazy" decoding="async" width="1179" height="669">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>MUSC — Parfum</h3>
+            <p class="mono work-meta">VISUEL PRODUIT · RETOUCHE</p>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="works-group" data-group="pochette">
+        <h3 class="works-sub"><strong>Réalisations photo</strong> — Pochettes</h3>
+        <div class="works works-grid">
+<article class="work" data-cat="pochette" data-type="image" data-title="Pochette — CHEVALIER">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/pochette-chevalier.jpg?v=2" alt="Pochette CHEVALIER — BIBEL02F : portrait en gros plan" loading="lazy" decoding="async" width="1179" height="1144">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>CHEVALIER</h3>
+            <p class="mono work-meta">POCHETTE D'ALBUM</p>
+          </div>
+        </article>
+<article class="work" data-cat="pochette" data-type="image" data-title="Pochette — RAK (Le Matin)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/pochette-rak-portail.jpg?v=2" alt="Pochette RAK — Le Matin : scènes de plage et de cité" loading="lazy" decoding="async" width="1179" height="1144">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>RAK — Le Matin</h3>
+            <p class="mono work-meta">POCHETTE D'ALBUM</p>
+          </div>
+        </article>
+<article class="work" data-cat="pochette" data-type="image" data-title="Pochette — SPIRIT ICE (Préambule)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/pochette-spirit-ice.jpg?v=2" alt="Pochette SPIRIT ICE — Préambule : trois artistes en studio" loading="lazy" decoding="async" width="1179" height="1144">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>SPIRIT ICE — Préambule</h3>
+            <p class="mono work-meta">POCHETTE D'ALBUM</p>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="works-group" data-group="video">
+        <h3 class="works-sub"><strong>Réalisations vidéo</strong> — Commerciale</h3>
+        <div class="works works-grid">
+        <article class="work" data-cat="video" data-type="local-video" data-src="assets/vid/chocolat.mp4" data-title="Chocolat — publicité animée">
+          <button class="work-media" aria-haspopup="dialog">
+            <video src="assets/vid/chocolat.mp4" poster="assets/img/chocolat-poster.webp" alt="Publicité animée : esquimau au chocolat en suspension, rubans de caramel" autoplay muted loop playsinline preload="metadata" width="640" height="310"></video>
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>Chocolat — Animé</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        <article class="work" data-cat="video" data-type="local-video" data-src="assets/vid/pokka.mp4" data-title="POKKA melon — publicité animée">
+          <button class="work-media" aria-haspopup="dialog">
+            <video src="assets/vid/pokka.mp4" poster="assets/img/pokka-poster.webp" alt="Publicité animée POKKA : canette sur un melon, tranche en suspension" autoplay muted loop playsinline preload="metadata" width="640" height="434"></video>
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>POKKA — Animé</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="works-group" data-group="clip">
+        <h3 class="works-sub"><strong>Clips musicaux</strong></h3>
+        <div class="works works-grid">
+<article class="work" data-cat="clip" data-type="video" data-yt="0Q_GJgeLVIU" data-title="Weezyang — RwiPiT (clip officiel)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/weezyang-rwipiT.jpg" alt="Capture du clip RwiPiT de Weezyang" loading="lazy" decoding="async" width="1280" height="720">
+            <span class="work-play" aria-hidden="true">▶</span>
+          </button>
+          <div class="work-info">
+            <h3>Weezyang — RwiPiT</h3>
+            <p class="mono work-meta">CLIP OFFICIEL · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="qVxYpxtj244" data-title="Faz Music — MDROUMCHE (clip officiel)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/faz-mdroumche.jpg" alt="Capture du clip MDROUMCHE de Faz Music" loading="lazy" decoding="async" width="1280" height="720">
+            <span class="work-play" aria-hidden="true">▶</span>
+          </button>
+          <div class="work-info">
+            <h3>Faz Music — MDROUMCHE</h3>
+            <p class="mono work-meta">CLIP OFFICIEL · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="-6sCgE9RYcg" data-title="Weezyang — Tooshdid (clip officiel)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/weezyang-tooshdid.jpg" alt="Capture du clip Tooshdid de Weezyang" loading="lazy" decoding="async" width="1280" height="720">
+            <span class="work-play" aria-hidden="true">▶</span>
+          </button>
+          <div class="work-info">
+            <h3>Weezyang — Tooshdid</h3>
+            <p class="mono work-meta">CLIP OFFICIEL · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="XNBBhESGSis" data-title="Faz Music — AMINA (clip officiel)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/faz-amina.jpg" alt="Capture du clip AMINA de Faz Music" loading="lazy" decoding="async" width="1280" height="720">
+            <span class="work-play" aria-hidden="true">▶</span>
+          </button>
+          <div class="work-info">
+            <h3>Faz Music — AMINA</h3>
+            <p class="mono work-meta">CLIP OFFICIEL · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="svGMhx4TmQ8" data-title="Weezyang — Ache24 (clip officiel)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="assets/img/weezyang-ache24.jpg" alt="Capture du clip Ache24 de Weezyang" loading="lazy" decoding="async" width="480" height="360">
+            <span class="work-play" aria-hidden="true">▶</span>
+          </button>
+          <div class="work-info">
+            <h3>Weezyang — Ache24</h3>
+            <p class="mono work-meta">CLIP OFFICIEL · YOUTUBE</p>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services" aria-labelledby="titre-services">
+      <div class="section-head">
+        <p class="section-kicker">SÉQUENCE 02 — PRESTATIONS</p>
+        <h2 class="section-title" id="titre-services">Services</h2>
+        <p class="section-intro">Trois offres, un même niveau d'exigence : captation, montage et étalonnage pour sublimer votre message.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-media">
+            <img src="assets/img/service-tournage.jpg" alt="Caméra de cinéma sur un plateau de tournage" loading="lazy" decoding="async" width="578" height="520">
+          </div>
+          <p class="mono service-tag">PROJET VIDÉO</p>
+          <h3>Réalisation de clips, publicités, vidéos commerciales</h3>
+          <p>Des contenus puissants, des visuels haut de gamme, des effets spectaculaires. Une création sur mesure qui reflète l'ADN de votre entreprise et laisse une empreinte durable.</p>
+          <div class="service-formulas">
+            <details open>
+              <summary><strong>Format Pro</strong> — Impact &amp; Élégance</summary>
+              <ul>
+                <li>Préparation méticuleuse : script, storyboard, mise en scène</li>
+                <li>Tournage haut de gamme : captation précise, qualité cinéma</li>
+                <li>Montage expert : sound design immersif, VFX sur mesure</li>
+                <li>Format immersif : jusqu'à 1 min 30 pour marquer les esprits</li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>Format Express</strong> — Simplicité &amp; Efficacité</summary>
+              <ul>
+                <li>Tournage express : 2 h de captation ciblée</li>
+                <li>Montage simple : rythmé, épuré, percutant</li>
+                <li>Format court : jusqu'à 30 secondes, parfait pour les réseaux sociaux</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-media">
+            <img src="assets/img/service-retouche.jpg" alt="Retouche photo dans un logiciel de post-production : gouttes d'eau en macro" loading="lazy" decoding="async" width="631" height="520">
+          </div>
+          <p class="mono service-tag">PROJET PHOTO</p>
+          <h3>Retouche et montage photo, création de pochettes, conception de flyers</h3>
+          <p>Des visuels percutants qui valorisent votre identité. Chaque visuel est conçu pour capter l'attention et renforcer votre image.</p>
+          <ul class="service-list">
+            <li>Retouches haut de gamme : optimisation des détails, contrastes et couleurs</li>
+            <li>Montage photo : création d'images cohérentes et impactantes</li>
+            <li>Conception de pochettes : visuels sur mesure pour albums, produits ou projets</li>
+            <li>Création de flyers : design attractif pour promouvoir vos événements, services ou produits</li>
+            <li>Esthétique unique : des visuels qui marquent les esprits dès le premier regard</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-media">
+            <img src="assets/img/service-etalonnage.jpg" alt="Étalonnage vidéo : comparaison avant/après et courbes de couleur" loading="lazy" decoding="async" width="605" height="520">
+          </div>
+          <p class="mono service-tag">PRODUCTION AUDIOVISUELLE</p>
+          <h3>Web-séries, courts-métrages, publicités, motion design</h3>
+          <p>Des productions haut de gamme, pensées pour captiver et raconter des histoires — des projets pensés pour marquer les esprits.</p>
+          <ul class="service-list">
+            <li>Réalisation complète : direction artistique, scénarisation et mise en scène sur mesure</li>
+            <li>Montage cinématographique : travail soigné, rythme, émotion, et VFX de qualité</li>
+            <li>Animations et motion design : créations modernes et dynamiques, parfaitement intégrées</li>
+            <li>Publicités et web-séries : pour les marques, créateurs ou entreprises qui veulent se démarquer</li>
+            <li>Formats adaptés : contenu conçu pour une immersion maximale, quel que soit le support</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="devis-box reveal" aria-label="Tarifs">
+        <p class="mono devis-tag">DEVIS</p>
+        <p>Nos tarifs sont établis sur devis personnalisé afin de répondre précisément à vos besoins et aux spécificités de chaque projet. Vos demandes sont étudiées dans les plus brefs délais et un devis détaillé vous sera transmis pour les services souhaités.</p>
+        <a class="btn btn-primary" href="mailto:vinsovfx@gmail.com?subject=Demande%20de%20devis%20—%20VIN'SO%20VFX">Demander un devis</a>
+      </aside>
+    </section>
+
+    <!-- ============ PROCESSUS ============ -->
+    <section class="section" id="processus" aria-labelledby="titre-processus">
+      <div class="section-head">
+        <p class="section-kicker">SÉQUENCE 03 — MÉTHODE</p>
+        <h2 class="section-title" id="titre-processus">Déroulé d'un projet</h2>
+        <p class="section-intro">Parce que chaque image raconte une histoire, chaque projet suit le même conducteur.</p>
+      </div>
+      <ol class="process-list">
+        <li class="reveal"><span class="mono process-step">01</span><h3>Brief &amp; devis</h3><p>Vous décrivez votre besoin par e-mail. Étude rapide, devis détaillé et personnalisé.</p></li>
+        <li class="reveal"><span class="mono process-step">02</span><h3>Préparation</h3><p>Script, storyboard et mise en scène : chaque plan est pensé avant le tournage.</p></li>
+        <li class="reveal"><span class="mono process-step">03</span><h3>Tournage</h3><p>Captation précise, qualité cinéma — en studio ou en extérieur.</p></li>
+        <li class="reveal"><span class="mono process-step">04</span><h3>Post-production</h3><p>Montage, VFX, étalonnage et sound design : l'image devient un film.</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ MANIFESTE ============ -->
+    <section class="section section-manifeste" id="manifeste" aria-labelledby="titre-manifeste">
+      <p class="section-kicker">SÉQUENCE 04 — MANIFESTE</p>
+      <h2 class="section-title" id="titre-manifeste">Chaque image raconte une histoire.</h2>
+      <div class="manifeste-body">
+        <p>Chez VIN'SO VFX, nous mettons en lumière votre vision. Nous créons pour nos clients des visuels percutants et élégants, adaptés à chaque projet — contenus publicitaires, événements ou productions artistiques.</p>
+        <p>Effets cinématographiques, montages dynamiques ou storytelling immersif : VIN'SO VFX répond à vos exigences avec créativité et expertise.</p>
+      </div>
+      <dl class="manifeste-facts">
+        <div><dt class="mono">BASE</dt><dd>Le Mans, Sarthe</dd></div>
+        <div><dt class="mono">TERRAIN</dt><dd>Partout — tournages et post-production à distance</dd></div>
+        <div><dt class="mono">PUBLIC</dt><dd>Artistes, marques, entreprises</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ ÉPILOGUE ============ -->
+    <section class="scrollvid" id="epilogue" data-src="assets/vid/anatomie-camera.mp4" data-reverse="1" aria-label="La caméra se reconstruit au défilement">
+      <h2 class="sr-only">La caméra se reconstruit</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="assets/img/epilogue-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="assets/vid/anatomie-camera.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-contact" id="contact" aria-labelledby="titre-contact">
+      <div class="section-head">
+        <p class="section-kicker">SÉQUENCE 05 — GÉNÉRIQUE DE FIN</p>
+        <h2 class="section-title" id="titre-contact">Contactez-nous</h2>
+        <p class="section-intro">Pour plus de renseignements, écrivez-nous. Réponse rapide, devis détaillé.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-main">
+          <button class="email-copy" id="email-copy" aria-label="Copier l'adresse e-mail vinsovfx@gmail.com">
+            <span class="mono email-label">E-MAIL — CLIQUER POUR COPIER</span>
+            <span class="email-address">vinsovfx@gmail.com</span>
+          </button>
+          <p class="email-hint mono" id="email-hint" aria-live="polite"></p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:vinsovfx@gmail.com?subject=Demande%20de%20devis%20—%20VIN'SO%20VFX">Écrire un e-mail</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/vinso.974" target="_blank" rel="noopener">Instagram — @vinso.974</a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe title="Carte — Le Mans et sa région" src="https://www.google.com/maps?q=Le+Mans,+Sarthe&z=11&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <p class="mono map-caption">ZONE — LE MANS · SARTHE · 48.00°N 0.20°E</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="assets/logo.svg?v=3" alt="VIN'SO VFX" width="110" height="30" loading="lazy">
+      <p class="mono footer-line">© 2026 VIN'SO VFX — TOUS DROITS RÉSERVÉS</p>
+      <nav class="footer-nav" aria-label="Liens de pied de page">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="mailto:vinsovfx@gmail.com">vinsovfx@gmail.com</a>
+        <a href="https://www.instagram.com/vinso.974" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============ OVERLAY VIDÉO ============ -->
+  <div class="overlay" id="video-overlay" role="dialog" aria-modal="true" aria-label="Lecteur vidéo" hidden>
+    <div class="overlay-backdrop" data-close></div>
+    <div class="overlay-box">
+      <div class="overlay-head">
+        <p class="mono overlay-title" id="video-overlay-title">LECTURE</p>
+        <button class="overlay-close" data-close aria-label="Fermer le lecteur">✕</button>
+      </div>
+      <div class="overlay-player" id="video-player"></div>
+      <p class="mono overlay-hint">ÉCHAP POUR FERMER · LECTURE SUR PLACE</p>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX IMAGE ============ -->
+  <div class="overlay" id="image-overlay" role="dialog" aria-modal="true" aria-label="Visionneuse d'image" hidden>
+    <div class="overlay-backdrop" data-close></div>
+    <div class="overlay-box overlay-box-image">
+      <div class="overlay-head">
+        <p class="mono overlay-title" id="image-overlay-title">IMAGE</p>
+        <button class="overlay-close" data-close aria-label="Fermer la visionneuse">✕</button>
+      </div>
+      <img id="lightbox-img" src="" alt="">
+      <p class="mono overlay-hint">ÉCHAP POUR FERMER</p>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

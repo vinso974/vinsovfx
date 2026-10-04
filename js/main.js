@@ -69,7 +69,7 @@
         if (!w || !w.current) throw 0;
         var t = Math.round(w.current.temperature_2m);
         var label = WMO[w.current.weather_code] || '';
-        lwHeader.textContent = STUDIO.city + ' \u00b7 ' + t + '\u00b0' + (label ? ' \u00b7 ' + label : '');
+        lwHeader.textContent = t + '\u00b0' + (label ? ' \u00b7 ' + label : '');
       })
       .catch(function () { /* météo indisponible : on garde juste l'heure */ });
   }

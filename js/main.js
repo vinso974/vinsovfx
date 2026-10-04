@@ -4,36 +4,45 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Préloader : barre de rendu ---------- */
+  /* ---------- Préloader : barre de rendu (court, et sauté après la 1re visite de la session) ---------- */
   var preloader = document.getElementById('preloader');
   var fill = document.getElementById('preloader-fill');
   var pct = document.getElementById('preloader-pct');
   var disciplinesEl = document.getElementById('preloader-disciplines');
   var disciplines = ['RÉALISATION', 'MONTAGE', 'ÉTALONNAGE', 'VFX', 'COMPOSITING', 'SOUND DESIGN'];
   var progress = 0, di = 0;
+  var seen = false;
+  try { seen = sessionStorage.getItem('vinso-seen') === '1'; } catch (e) { /* stockage indisponible */ }
 
   var discTimer = setInterval(function () {
     di = (di + 1) % disciplines.length;
     if (disciplinesEl) disciplinesEl.textContent = disciplines[di];
-  }, 320);
+  }, 260);
 
+  var finished = false;
   function finishPreloader() {
+    if (finished) return;
+    finished = true;
     clearInterval(discTimer);
+    clearInterval(tick);
     if (preloader) preloader.classList.add('done');
     document.body.classList.add('is-ready');
+    try { sessionStorage.setItem('vinso-seen', '1'); } catch (e) { /* ignore */ }
   }
 
-  // Progression simulée bornée : 2,2 s max, termine dès que la page est chargée
-  var loadDone = false;
+  // Progression simulée jusqu'à 90 %, puis 100 % dès que la page est chargée (durée minimale ≈ 0,7 s)
+  var loadDone = false, minElapsed = false;
   window.addEventListener('load', function () { loadDone = true; });
+  setTimeout(function () { minElapsed = true; }, seen ? 0 : 700);
   var tick = setInterval(function () {
-    progress += loadDone ? 34 : 9;
-    if (progress >= 100) { progress = 100; clearInterval(tick); setTimeout(finishPreloader, 250); }
+    progress += (loadDone && minElapsed) ? 40 : (progress < 90 ? 8 : 0);
+    if (progress >= 100) { progress = 100; setTimeout(finishPreloader, 150); clearInterval(tick); }
     if (fill) fill.style.width = progress + '%';
     if (pct) pct.textContent = progress + '%';
-  }, 120);
-  // Sécurité : jamais bloquer plus de 4 s
-  setTimeout(function () { clearInterval(tick); finishPreloader(); }, 4000);
+  }, 80);
+  // Sécurité : jamais bloquer plus de 3 s
+  setTimeout(finishPreloader, 3000);
+  if (seen && preloader) { preloader.style.display = 'none'; finishPreloader(); }
 
   /* ---------- Header : heure locale + météo (sans géolocalisation) ---------- */
   var ltHeader = document.getElementById('local-time-header');
@@ -41,36 +50,28 @@
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function updateClock() {
     var d = new Date();
-    var str = pad(d.getHours()) + ':' + pad(d.getMinutes());
+    var str;
+    try { str = new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' }).format(d); }
+    catch (e) { str = pad(d.getHours()) + ':' + pad(d.getMinutes()); }
     if (ltHeader) ltHeader.textContent = str;
   }
   updateClock();
   setInterval(updateClock, 20000);
-  /* Météo : position approximative via l'adresse IP (aucune permission demandée), données Open-Meteo */
+  /* Météo : données Open-Meteo */
   var WMO = {0:'Dégagé',1:'Éclaircies',2:'Nuageux',3:'Couvert',45:'Brouillard',48:'Brouillard',51:'Bruine',53:'Bruine',55:'Bruine',56:'Bruine verglaçante',57:'Bruine verglaçante',61:'Pluie',63:'Pluie',65:'Pluie',66:'Pluie verglaçante',67:'Pluie verglaçante',71:'Neige',73:'Neige',75:'Neige',77:'Neige',80:'Averses',81:'Averses',82:'Averses',85:'Neige',86:'Neige',95:'Orage',96:'Orage',99:'Orage'};
-  /* Ville approximative via l'adresse IP (aucune permission demandée), avec repli si le 1er service échoue */
-  function geoLookup() {
-    return fetch('https://ipapi.co/json/').then(function (r) { return r.json(); }).then(function (loc) {
-      if (loc && loc.latitude && loc.longitude) return { city: loc.city || '', lat: loc.latitude, lon: loc.longitude };
-      throw 0;
-    }).catch(function () {
-      return fetch('https://ipwho.is/').then(function (r) { return r.json(); }).then(function (loc) {
-        if (loc && loc.success !== false && loc.latitude && loc.longitude) return { city: loc.city || '', lat: loc.latitude, lon: loc.longitude };
-        throw 0;
-      });
-    });
-  }
+  /* Météo du Mans (coordonnées fixes) : aucune géolocalisation du visiteur, aucun service tiers d'IP. */
+  var STUDIO = { city: 'Le Mans', lat: 48.0061, lon: 0.1996 };
   function updateWeather() {
-    if (!('fetch' in window)) return;
-    geoLookup().then(function (g) {
-      return fetch('https://api.open-meteo.com/v1/forecast?latitude=' + g.lat + '&longitude=' + g.lon + '&current=temperature_2m,weather_code&timezone=auto').then(function (r) { return r.json(); }).then(function (w) {
+    if (!('fetch' in window) || !lwHeader) return;
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=' + STUDIO.lat + '&longitude=' + STUDIO.lon + '&current=temperature_2m,weather_code&timezone=Europe%2FParis')
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (w) {
         if (!w || !w.current) throw 0;
         var t = Math.round(w.current.temperature_2m);
         var label = WMO[w.current.weather_code] || '';
-        var city = g.city ? g.city + ' · ' : '';
-        if (lwHeader) lwHeader.textContent = city + t + '°' + (label ? ' · ' + label : '');
-      });
-    }).catch(function () { /* météo indisponible : on garde juste l'heure */ });
+        lwHeader.textContent = STUDIO.city + ' \u00b7 ' + t + '\u00b0' + (label ? ' \u00b7 ' + label : '');
+      })
+      .catch(function () { /* météo indisponible : on garde juste l'heure */ });
   }
   updateWeather();
   setInterval(updateWeather, 1800000);
@@ -84,7 +85,12 @@
     var s = Math.floor(el % 60), m = Math.floor(el / 60 % 60), h = Math.floor(el / 3600);
     if (tcHero) tcHero.textContent = pad(h) + ':' + pad(m) + ':' + pad(s) + ':' + pad(f);
   }
-  if (!reduceMotion) setInterval(updateTC, 40); else updateTC();
+  var heroInView = true;
+  var heroEl = document.getElementById('hero');
+  if (heroEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { heroInView = en[0].isIntersecting; }, { threshold: 0 }).observe(heroEl);
+  }
+  if (!reduceMotion) setInterval(function () { if (heroInView && !document.hidden) updateTC(); }, 40); else updateTC();
 
   /* ---------- Marquee : duplication pour boucle infinie ---------- */
   var track = document.getElementById('marquee-track');
@@ -217,8 +223,9 @@
   function closeOverlays() {
     [videoOverlay, imageOverlay].forEach(function (o) { o.hidden = true; });
     videoPlayer.innerHTML = '';
+    lightboxImg.removeAttribute('src');
     document.body.style.overflow = '';
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
   }
 
   document.querySelectorAll('[data-close]').forEach(function (el) {
@@ -241,15 +248,17 @@
   document.querySelectorAll('.work').forEach(function (work) {
     var btn = work.querySelector('.work-media');
     if (!btn) return;
+    var kind = work.getAttribute('data-type');
+    btn.setAttribute('aria-label', (kind === 'image' ? 'Agrandir : ' : 'Lire : ') + (work.getAttribute('data-title') || 'réalisation'));
     btn.addEventListener('click', function () {
       var type = work.getAttribute('data-type');
       var title = work.getAttribute('data-title') || 'Réalisation';
       if (type === 'video') {
         var id = work.getAttribute('data-yt');
         videoTitle.textContent = title.toUpperCase();
-        videoPlayer.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id +
-          '?autoplay=1&rel=0" title="' + title.replace(/"/g, '') +
-          '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        videoPlayer.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+          '?autoplay=1&rel=0&playsinline=1" title="' + title.replace(/["<>&]/g, '') +
+          '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         openOverlay(videoOverlay);
       } else if (type === 'local-video') {
         var src = work.getAttribute('data-src');
@@ -269,6 +278,36 @@
       }
     });
   });
+
+
+  /* ---------- Vidéos des cartes : lecture uniquement à l'écran (économie de bande passante et de CPU) ---------- */
+  var cardVideos = Array.prototype.slice.call(document.querySelectorAll('video[data-autoplay]'));
+  if (cardVideos.length) {
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var v = e.target;
+          if (e.isIntersecting) {
+            if (v.preload !== 'auto') v.preload = 'auto';
+            var pr = v.play(); if (pr && pr.catch) pr.catch(function () { /* lecture bloquée : le poster reste affiché */ });
+          } else { v.pause(); }
+        });
+      }, { rootMargin: '150px 0px', threshold: 0.15 });
+      cardVideos.forEach(function (v) { vio.observe(v); });
+    } /* mouvement réduit ou navigateur ancien : poster statique, la vidéo se lit dans la visionneuse */
+  }
+
+  /* ---------- Carte : chargement au clic ---------- */
+  var mapBtn = document.getElementById('map-load');
+  var mapFrame = document.getElementById('map-frame');
+  var mapFacade = document.getElementById('map-facade');
+  if (mapBtn && mapFrame && mapFacade) {
+    mapBtn.addEventListener('click', function () {
+      mapFrame.src = mapFrame.getAttribute('data-src');
+      mapFrame.hidden = false;
+      mapFacade.hidden = true;
+    });
+  }
 
   /* ---------- E-mail copiable ---------- */
   var emailBtn = document.getElementById('email-copy');
@@ -322,12 +361,7 @@
         scrollvids.forEach(function (s) { s.classList.add('no-webgl'); });
       };
       document.body.appendChild(s2);
-      // Sécurité : si une vidéo ne répond pas en 6 s, poster statique
-      setTimeout(function () {
-        scrollvids.forEach(function (s) {
-          if (!s.classList.contains('webgl-ready')) s.classList.add('no-webgl');
-        });
-      }, 6000);
+      // Le délai de sécurité est géré section par section dans scrollvideo.js (au début du téléchargement)
     } else {
       scrollvids.forEach(function (s) { s.classList.add('no-webgl'); });
     }

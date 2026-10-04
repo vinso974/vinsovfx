@@ -162,7 +162,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
   }
   function loop() {
     requestAnimationFrame(loop);
-    if (!visible) return;
+    if (!visible || document.hidden || hero.classList.contains('no-webgl')) return;
 
     // Travelling : la caméra avance dans le couloir au fil du scroll du hero
     var dist = frameDist();

@@ -235,6 +235,9 @@
       if (loaded) return;
       loaded = true;
       scrubbers.forEach(function (s, i) { s.loadBlob(srcs[i]); });
+      /* Sécurité : le délai court à partir du début du téléchargement (pas du chargement de la page),
+         sinon les sections lointaines basculaient en poster statique avant même d'être approchées. */
+      setTimeout(function () { if (!started && !failed) section.classList.add('no-webgl'); }, 20000);
     }
     if (reduceMotion) { section.classList.add('no-webgl'); return; }
     if ('IntersectionObserver' in window) {
@@ -245,8 +248,6 @@
     } else {
       loadAll();
     }
-    /* Sécurité : si rien ne démarre, on montre le poster */
-    setTimeout(function () { if (!started && !failed) section.classList.add('no-webgl'); }, 20000);
   }
 
   document.querySelectorAll('section.scrollvid').forEach(initSection);

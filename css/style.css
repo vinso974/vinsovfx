@@ -277,6 +277,8 @@ a:hover { color: var(--ambre); }
 .footer-nav { display: flex; gap: 22px; }
 .footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clap); text-decoration: none; }
 .footer-nav a:hover { color: var(--ambre); }
+.footer-nav a.legal-link { font-size: 0.62rem; opacity: 0.55; }
+.footer-nav a.legal-link:hover { opacity: 1; }
 
 /* ---------- Overlays ---------- */
 .overlay { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 20px; }

@@ -249,27 +249,15 @@
     var btn = work.querySelector('.work-media');
     if (!btn) return;
     var kind = work.getAttribute('data-type');
-    if (kind === 'local-video') return; /* lecture directe : contrôles natifs sur la carte, pas de visionneuse */
-    btn.setAttribute('aria-label', (kind === 'image' ? 'Agrandir : ' : 'Lire : ') + (work.getAttribute('data-title') || 'réalisation'));
+    if (kind === 'local-video' || kind === 'video') return; /* lecteurs directs sur la carte, pas de visionneuse */
+    btn.setAttribute('aria-label', 'Agrandir : ' + (work.getAttribute('data-title') || 'réalisation'));
     btn.addEventListener('click', function () {
-      var type = work.getAttribute('data-type');
       var title = work.getAttribute('data-title') || 'Réalisation';
-      if (type === 'video') {
-        /* YouTube : lecteur intégré directement dans la carte, sans visionneuse */
-        var id = work.getAttribute('data-yt');
-        var frame = document.createElement('div');
-        frame.className = 'work-media';
-        frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
-          '?autoplay=1&rel=0&playsinline=1" title="' + title.replace(/["<>&]/g, '') +
-          '" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        btn.replaceWith(frame);
-      } else {
-        var img = btn.querySelector('img');
-        imageTitle.textContent = title.toUpperCase();
-        lightboxImg.src = img.currentSrc || img.src;
-        lightboxImg.alt = img.alt;
-        openOverlay(imageOverlay);
-      }
+      var img = btn.querySelector('img');
+      imageTitle.textContent = title.toUpperCase();
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt;
+      openOverlay(imageOverlay);
     });
   });
 

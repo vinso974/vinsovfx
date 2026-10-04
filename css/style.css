@@ -198,6 +198,10 @@ a:hover { color: var(--ambre); }
 .works-grid .work[data-type="local-video"] .work-info { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .work.is-hidden { display: none; }
 .work-media { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #000; cursor: pointer; overflow: hidden; }
+/* Cartes vidéo en lecture directe : pas de bouton, contrôles natifs du lecteur */
+.work-media--direct { cursor: default; }
+.work:hover .work-media--direct video { transform: none; }
+.work-media iframe { width: 100%; aspect-ratio: 16 / 9; display: block; border: 0; background: #000; }
 .work-media img, .work-media video { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
 .work:hover .work-media img, .work:hover .work-media video { transform: scale(1.05); }
 .work-play, .work-zoom { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: rgba(0,0,0,0.72); border: 1px solid rgba(244,239,230,0.5); color: var(--pellicule); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; backdrop-filter: blur(2px); }

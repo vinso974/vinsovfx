@@ -1,7 +1,7 @@
 /* VIN'SO VFX — Hero 3D : travelling à travers les réalisations.
    Chargé uniquement si WebGL disponible et pas de prefers-reduced-motion.
    En cas d'échec : bascule vers le poster statique (classe .no-webgl). */
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import * as THREE from './three.module.min.js';
 
 (function () {
   var hero = document.getElementById('hero');
@@ -29,15 +29,15 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
   // Un seul couloir bien droit : un cadre centré par plan, espacés régulièrement.
   var shots = [
     { src: 'assets/img/hero-desert-clean.jpg',      label: 'PLAN 01 — TRAVELLING' },
-    { src: 'assets/img/weezyang-rwipiT.jpg',        label: 'PLAN 02 — CLIP' },
-    { src: 'assets/img/faz-mdroumche.jpg',          label: 'PLAN 03 — CLIP' },
-    { src: 'assets/img/weezyang-tooshdid.jpg',      label: 'PLAN 04 — CLIP' },
-    { src: 'assets/img/real-strawberry-hq.jpg?v=2',    label: 'PLAN 05 — PRODUIT' },
-    { src: 'assets/img/real-pokka-melon-entier.jpg?v=2', label: 'PLAN 06 — PRODUIT' },
-    { src: 'assets/img/real-abu-fruity.jpg?v=2',        label: 'PLAN 07 — PRODUIT' },
-    { src: 'assets/img/pochette-chevalier.jpg?v=2',    label: 'PLAN 08 — POCHETTE' },
-    { src: 'assets/img/pochette-spirit-ice.jpg?v=2',   label: 'PLAN 09 — POCHETTE' },
-    { src: 'assets/img/pochette-rak-portail.jpg?v=2',   label: 'PLAN 10 — POCHETTE' }
+    { src: 'assets/img/tex-rwipiT.webp',        label: 'PLAN 02 — CLIP' },
+    { src: 'assets/img/tex-mdroumche.webp',          label: 'PLAN 03 — CLIP' },
+    { src: 'assets/img/tex-tooshdid.webp',      label: 'PLAN 04 — CLIP' },
+    { src: 'assets/img/tex-strawberry.webp',    label: 'PLAN 05 — PRODUIT' },
+    { src: 'assets/img/tex-pokka-melon.webp', label: 'PLAN 06 — PRODUIT' },
+    { src: 'assets/img/tex-abu-fruity.webp',        label: 'PLAN 07 — PRODUIT' },
+    { src: 'assets/img/tex-chevalier.webp',    label: 'PLAN 08 — POCHETTE' },
+    { src: 'assets/img/tex-spirit-ice.webp',   label: 'PLAN 09 — POCHETTE' },
+    { src: 'assets/img/tex-rak-portail.webp',   label: 'PLAN 10 — POCHETTE' }
   ];
   var SPACING = 7.5; // distance régulière entre deux plans
 

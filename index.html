@@ -8,6 +8,23 @@
   <meta name="theme-color" content="#0B0B0D">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://www.vinsovfx.com/">
+  <link rel="alternate" hreflang="fr" href="https://www.vinsovfx.com/">
+  <link rel="alternate" hreflang="en" href="https://www.vinsovfx.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.vinsovfx.com/">
+  <script>
+    /* Version anglaise : redirection unique si le navigateur du visiteur n'est pas en français.
+       Le choix manuel (FR/EN, mémorisé dans le navigateur) est toujours respecté. */
+    (function () {
+      try {
+        if (localStorage.getItem('vinso-lang')) return;
+        var l = (navigator.language || 'fr').toLowerCase();
+        if (l.indexOf('fr') !== 0) {
+          localStorage.setItem('vinso-lang', 'en');
+          window.location.replace('en/');
+        }
+      } catch (e) { /* stockage indisponible : on reste en français */ }
+    })();
+  </script>
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="VIN'SO VFX — Vidéaste &amp; réalisateur">
@@ -24,7 +41,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,6 +82,9 @@
       <a href="#services">Services</a>
       <a href="#processus">Processus</a>
       <a href="#contact">Contact</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Langue">
+      <a href="./" class="is-active" aria-current="true" onclick="try{localStorage.setItem('vinso-lang','fr')}catch(e){}">FR</a><span aria-hidden="true">·</span><a href="en/" hreflang="en" onclick="try{localStorage.setItem('vinso-lang','en')}catch(e){}">EN</a>
     </nav>
     <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span><span></span>

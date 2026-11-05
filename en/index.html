@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIN'SO VFX — Videographer &amp; Filmmaker · Music Videos, Brand Films &amp; VFX</title>
+  <meta name="description" content="VIN'SO VFX — videographer &amp; filmmaker. Music videos, brand films, VFX and compositing, color grading, editing. For artists, brands and businesses. Based in Le Mans, France — available worldwide.">
+  <meta name="theme-color" content="#0B0B0D">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://www.vinsovfx.com/en/">
+  <link rel="alternate" hreflang="fr" href="https://www.vinsovfx.com/">
+  <link rel="alternate" hreflang="en" href="https://www.vinsovfx.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.vinsovfx.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="VIN'SO VFX — Videographer &amp; Filmmaker">
+  <meta property="og:description" content="Music videos, brand films and VFX. For artists, brands and businesses. Based in Le Mans, France — available worldwide.">
+  <meta property="og:url" content="https://www.vinsovfx.com/en/">
+  <meta property="og:site_name" content="VIN'SO VFX">
+  <meta property="og:image" content="https://www.vinsovfx.com/assets/img/og-share-1200x630.jpg">
+  <meta property="og:image:alt" content="Strawberry Ice Cream product visual by VIN'SO VFX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VIN'SO VFX — Videographer &amp; Filmmaker">
+  <meta name="twitter:description" content="Music videos, brand films and VFX. For artists, brands and businesses. Based in Le Mans, France — available worldwide.">
+  <meta name="twitter:image" content="https://www.vinsovfx.com/assets/img/og-share-1200x630.jpg">
+  <link rel="icon" href="../assets/logo.svg?v=3" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.css?v=8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "VIN'SO VFX",
+    "url": "https://www.vinsovfx.com/",
+    "logo": "https://www.vinsovfx.com/assets/logo.svg",
+    "image": "https://www.vinsovfx.com/assets/img/og-share-1200x630.jpg",
+    "description": "Videographer & filmmaker: music videos, brand films, VFX and compositing, color grading, editing.",
+    "email": "vinsovfx@gmail.com",
+    "areaServed": "Worldwide",
+    "address": { "@type": "PostalAddress", "addressLocality": "Le Mans", "addressCountry": "FR" },
+    "sameAs": ["https://www.instagram.com/vinso.974"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <!-- Préloader : barre de rendu -->
+  <div id="preloader" role="status" aria-label="Loading the site">
+    <div class="preloader-inner">
+      <div class="preloader-logo" aria-hidden="true">VIN'SO <span class="rec-dot"></span></div>
+      <div class="preloader-disciplines" id="preloader-disciplines" aria-hidden="true">DIRECTION</div>
+      <div class="preloader-bar"><div class="preloader-fill" id="preloader-fill"></div></div>
+      <div class="preloader-meta"><span>RENDER</span><span id="preloader-pct">0%</span></div>
+    </div>
+  </div>
+  <noscript><style>#preloader{display:none}</style></noscript>
+
+  <!-- En-tête -->
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#hero" aria-label="VIN'SO VFX — back to top">
+      <img src="../assets/logo.svg?v=3" alt="VIN'SO VFX" width="132" height="36">
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="#realisations">Work</a>
+      <a href="#services">Services</a>
+      <a href="#processus">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Language">
+      <a href="../index.html" hreflang="fr" onclick="try{localStorage.setItem('vinso-lang','fr')}catch(e){}">FR</a><span aria-hidden="true">·</span><a href="./" class="is-active" aria-current="true" onclick="try{localStorage.setItem('vinso-lang','en')}catch(e){}">EN</a>
+    </nav>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-meta">
+      <span class="local-weather" id="local-weather-header" aria-hidden="true"></span>
+      <span class="local-time" id="local-time-header" aria-hidden="true">--:--</span>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero-stage" id="hero-stage">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-fallback" id="hero-fallback" aria-hidden="true"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="viewfinder" aria-hidden="true">
+          <span class="vf-corner tl"></span><span class="vf-corner tr"></span>
+          <span class="vf-corner bl"></span><span class="vf-corner br"></span>
+        </div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-kicker"><span class="rec-dot" aria-hidden="true"></span> PRODUCTION STUDIO — LE MANS, FRANCE</p>
+        <h1 class="hero-title">Videographer &amp; filmmaker<br><span class="hero-title-accent">music videos, brand films &amp; VFX</span></h1>
+        <p class="hero-sub">For artists, brands and businesses.<br>Based in Le Mans, France — available worldwide.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#realisations">See my work</a>
+          <a class="btn btn-ghost" href="mailto:vinsovfx@gmail.com?subject=Quote%20request%20%E2%80%94%20VIN%27SO%20VFX">Get a quote</a>
+        </div>
+        <div class="hero-meta">
+          <span class="timecode" id="timecode-hero">00:00:00:00</span>
+          <span class="hero-plan" id="hero-plan">SHOT 01 — TRACKING SHOT</span>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#realisations" aria-label="Scroll to the work section">
+        <span aria-hidden="true"></span> SCROLL
+      </a>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track">
+        <span>DIRECTION</span><i>•</i><span>MUSIC VIDEOS</span><i>•</i><span>VFX &amp; COMPOSITING</span><i>•</i><span>COLOR GRADING</span><i>•</i><span>EDITING</span><i>•</i><span>MOTION DESIGN</span><i>•</i><span>PRODUCT PHOTOGRAPHY</span><i>•</i><span>3D GRAPHICS</span><i>•</i><span>ART DIRECTION</span><i>•</i>
+      </div>
+    </div>
+
+    <!-- ============ ANATOMIE ============ -->
+    <section class="scrollvid" id="anatomie" data-src="../assets/vid/anatomie-camera.mp4" aria-label="Cinema camera deconstructing as you scroll">
+      <h2 class="sr-only">Take the camera apart</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="../assets/img/anatomie-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="../assets/vid/anatomie-camera.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-caption" aria-hidden="true">
+          <div class="caption-inner">
+            <p class="caption-text">Cinematic impact is born from absolute mastery of light and framing.</p>
+            <span class="caption-scan"></span>
+          </div>
+        </div>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ ENTRAILLES ============ -->
+    <section class="scrollvid" id="entrailles" data-src="../assets/vid/entrailles-a.mp4" data-src2="../assets/vid/entrailles-b.mp4" data-split="0.5" aria-label="A dive inside the camera as you scroll">
+      <h2 class="sr-only">Inside the camera</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="../assets/img/entrailles-a-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="../assets/vid/entrailles-a.mp4" type="video/mp4">
+        </video>
+        <video class="scrollvid-video" muted playsinline preload="none" poster="../assets/img/entrailles-b-poster.webp" aria-hidden="true" disablepictureinpicture style="opacity:0">
+          <source src="../assets/vid/entrailles-b.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-caption" aria-hidden="true">
+          <div class="caption-inner">
+            <p class="caption-text">Surgical precision: from raw footage to VFX compositing.</p>
+            <span class="caption-scan"></span>
+          </div>
+        </div>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ CAPTEUR ============ -->
+    <section class="scrollvid" id="capteur" data-src="../assets/vid/capteur.mp4" aria-label="The camera sensor in close-up as you scroll">
+      <h2 class="sr-only">The eye — the sensor</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="../assets/img/capteur-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="../assets/vid/capteur.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-caption" aria-hidden="true">
+          <div class="caption-inner">
+            <p class="caption-text">Elevating reality: cinema color grading, SFX and 3D integration.</p>
+            <span class="caption-scan"></span>
+          </div>
+        </div>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ RÉALISATIONS ============ -->
+    <section class="section" id="realisations" aria-labelledby="titre-realisations">
+      <div class="section-head">
+        <p class="section-kicker">SEQUENCE 01 — PORTFOLIO</p>
+        <h2 class="section-title" id="titre-realisations">Work</h2>
+        <p class="section-intro">VFX short films, commercial films, music videos and product visuals. Click to enlarge — everything stays on this page.</p>
+      </div>
+
+      <div class="works-toolbar">
+        <div class="filters" role="group" aria-label="Filter the work">
+          <button class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="photo" aria-pressed="false">Photo</button>
+          <button class="filter-btn" data-filter="pochette" aria-pressed="false">Covers</button>
+          <button class="filter-btn" data-filter="video" aria-pressed="false">Video</button>
+          <button class="filter-btn" data-filter="clip" aria-pressed="false">Music videos</button>
+        </div>
+        <div class="view-toggle" role="group" aria-label="Display mode">
+          <button class="view-btn is-active" data-view="grid" aria-pressed="true" aria-label="Grid view">▦</button>
+          <button class="view-btn" data-view="list" aria-pressed="false" aria-label="List view">☰</button>
+        </div>
+      </div>
+
+      <p class="works-count mono" id="works-count" aria-live="polite"></p>
+
+      <div class="works-group" data-group="video">
+        <h3 class="works-sub"><strong>Video work</strong> — Cinematic shorts</h3>
+        <div class="works works-grid">
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/dragons-blood.mp4" data-title="Dragon's Blood — cinematic short">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/dragons-blood.mp4" poster="../assets/img/dragons-blood-poster.jpg" data-autoplay muted loop playsinline preload="none" width="1720" height="720"></video>
+          </div>
+          <div class="work-info">
+            <h3>Dragon's Blood</h3>
+            <p class="mono work-meta">SHORT · CINEMATIC</p>
+          </div>
+        </article>
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/samourai.mp4" data-title="Samouraï — cinematic short">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/samourai.mp4" poster="../assets/img/samourai-poster.jpg" data-autoplay muted loop playsinline preload="none" width="1280" height="720"></video>
+          </div>
+          <div class="work-info">
+            <h3>Samurai</h3>
+            <p class="mono work-meta">SHORT · CINEMATIC</p>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="works-group" data-group="video">
+        <h3 class="works-sub"><strong>Video work</strong> — Commercial</h3>
+        <div class="works works-grid">
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/vinso-juice.mp4" data-title="Vin'so Juice — animated commercial">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/vinso-juice.mp4" poster="../assets/img/vinso-juice-poster.jpg" data-autoplay muted loop playsinline preload="none" width="720" height="906"></video>
+          </div>
+          <div class="work-info">
+            <h3>Vin'so Juice — Animated</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/vinso-drinks-grenadine.mp4" data-title="Vin'so Drinks — grenadine commercial">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/vinso-drinks-grenadine.mp4" poster="../assets/img/vinso-drinks-grenadine-poster.jpg" data-autoplay muted loop playsinline preload="none" width="748" height="720"></video>
+          </div>
+          <div class="work-info">
+            <h3>Vin'so Drinks — Grenadine</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/pokka-melon.mp4" data-title="POKKA — melon commercial">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/pokka-melon.mp4" poster="../assets/img/pokka-melon-poster.jpg" data-autoplay muted loop playsinline preload="none" width="720" height="1280"></video>
+          </div>
+          <div class="work-info">
+            <h3>POKKA — Melon</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/musc-parfum.mp4" data-title="MUSC — perfume commercial">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/musc-parfum.mp4" poster="../assets/img/musc-parfum-poster.jpg" data-autoplay muted loop playsinline preload="none" width="720" height="900"></video>
+          </div>
+          <div class="work-info">
+            <h3>MUSC — Perfume</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        <article class="work" data-cat="video" data-type="local-video" data-src="../assets/vid/glace-fraise-dino.mp4" data-title="Strawberry Ice Cream — dino commercial">
+          <div class="work-media work-media--direct">
+            <video controls src="../assets/vid/glace-fraise-dino.mp4" poster="../assets/img/glace-fraise-dino-poster.jpg" data-autoplay muted loop playsinline preload="none" width="960" height="720"></video>
+          </div>
+          <div class="work-info">
+            <h3>Strawberry Ice Cream — Dino</h3>
+            <p class="mono work-meta">VIDÉO · COMPOSITING</p>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="works-group" data-group="clip">
+        <h3 class="works-sub"><strong>Music videos</strong></h3>
+        <div class="works works-grid">
+<article class="work" data-cat="clip" data-type="video" data-yt="0Q_GJgeLVIU" data-title="Weezyang — RwiPiT (official music video)">
+          <div class="work-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/0Q_GJgeLVIU?rel=0&playsinline=1" title="Weezyang — RwiPiT (official music video)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <h3>Weezyang — RwiPiT</h3>
+            <p class="mono work-meta">OFFICIAL MUSIC VIDEO · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="qVxYpxtj244" data-title="Faz Music — MDROUMCHE (official music video)">
+          <div class="work-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/qVxYpxtj244?rel=0&playsinline=1" title="Faz Music — MDROUMCHE (official music video)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <h3>Faz Music — MDROUMCHE</h3>
+            <p class="mono work-meta">OFFICIAL MUSIC VIDEO · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="-6sCgE9RYcg" data-title="Weezyang — Tooshdid (official music video)">
+          <div class="work-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/-6sCgE9RYcg?rel=0&playsinline=1" title="Weezyang — Tooshdid (official music video)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <h3>Weezyang — Tooshdid</h3>
+            <p class="mono work-meta">OFFICIAL MUSIC VIDEO · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="XNBBhESGSis" data-title="Faz Music — AMINA (official music video)">
+          <div class="work-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/XNBBhESGSis?rel=0&playsinline=1" title="Faz Music — AMINA (official music video)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <h3>Faz Music — AMINA</h3>
+            <p class="mono work-meta">OFFICIAL MUSIC VIDEO · YOUTUBE</p>
+          </div>
+        </article>
+<article class="work" data-cat="clip" data-type="video" data-yt="svGMhx4TmQ8" data-title="Weezyang — Ache24 (official music video)">
+          <div class="work-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/svGMhx4TmQ8?rel=0&playsinline=1" title="Weezyang — Ache24 (official music video)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <h3>Weezyang — Ache24</h3>
+            <p class="mono work-meta">OFFICIAL MUSIC VIDEO · YOUTUBE</p>
+          </div>
+
+      <div class="works-group" data-group="photo">
+        <h3 class="works-sub"><strong>Photo work</strong> — Commercial</h3>
+        <div class="works works-grid">
+<article class="work" data-cat="photo" data-type="image" data-title="Strawberry Ice Cream — product visual">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/real-strawberry-hq.jpg?v=2" alt="Strawberry Ice Cream product visual: a bitten strawberry ice lolly, strawberries and splashes" loading="lazy" decoding="async" width="1179" height="1179">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>Strawberry Ice Cream</h3>
+            <p class="mono work-meta">PRODUCT VISUAL · COMPOSITING</p>
+          </div>
+        </article>
+<article class="work" data-cat="photo" data-type="image" data-title="POKKA melon — product visual">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/real-pokka-melon-entier.jpg?v=2" alt="POKKA product visual: a can resting on a whole melon, a slice floating in mid-air" loading="lazy" decoding="async" width="1179" height="1142">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>POKKA — Melon</h3>
+            <p class="mono work-meta">PRODUCT VISUAL · COMPOSITING</p>
+          </div>
+        </article>
+<article class="work" data-cat="photo" data-type="image" data-title="ABU FRUITY — product visual">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/real-abu-fruity.jpg?v=2" alt="ABU FRUITY product visual: a multifruit juice carton, orange splashes" loading="lazy" decoding="async" width="1179" height="781">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>ABU FRUITY</h3>
+            <p class="mono work-meta">PRODUCT VISUAL · RETOUCHING</p>
+          </div>
+        </article>
+<article class="work" data-cat="photo" data-type="image" data-title="MUSC — product visual">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/real-musc-parfum.jpg?v=2" alt="Product visual for the MUSC perfume" loading="lazy" decoding="async" width="1179" height="669">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>MUSC — Perfume</h3>
+            <p class="mono work-meta">PRODUCT VISUAL · RETOUCHING</p>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="works-group" data-group="pochette">
+        <h3 class="works-sub"><strong>Photo work</strong> — Album covers</h3>
+        <div class="works works-grid">
+<article class="work" data-cat="pochette" data-type="image" data-title="Album cover — CHEVALIER">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/pochette-chevalier.jpg?v=2" alt="CHEVALIER album cover — BIBEL02F: close-up portrait" loading="lazy" decoding="async" width="1179" height="1144">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>CHEVALIER</h3>
+            <p class="mono work-meta">ALBUM COVER</p>
+          </div>
+        </article>
+<article class="work" data-cat="pochette" data-type="image" data-title="Album cover — RAK (Le Matin)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/pochette-rak-portail.jpg?v=2" alt="RAK album cover — Le Matin: beach and neighbourhood scenes" loading="lazy" decoding="async" width="1179" height="1144">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>RAK — Le Matin</h3>
+            <p class="mono work-meta">ALBUM COVER</p>
+          </div>
+        </article>
+<article class="work" data-cat="pochette" data-type="image" data-title="Album cover — SPIRIT ICE (Préambule)">
+          <button class="work-media" aria-haspopup="dialog">
+            <img src="../assets/img/pochette-spirit-ice.jpg?v=2" alt="SPIRIT ICE album cover — Préambule: three artists in the studio" loading="lazy" decoding="async" width="1179" height="1144">
+            <span class="work-zoom" aria-hidden="true">⤢</span>
+          </button>
+          <div class="work-info">
+            <h3>SPIRIT ICE — Préambule</h3>
+            <p class="mono work-meta">ALBUM COVER</p>
+          </div>
+        </article>
+        </div>
+      </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services" aria-labelledby="titre-services">
+      <div class="section-head">
+        <p class="section-kicker">SEQUENCE 02 — SERVICES</p>
+        <h2 class="section-title" id="titre-services">Services</h2>
+        <p class="section-intro">Three services, one single standard: shooting, editing and color grading to elevate your message.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-media">
+            <img src="../assets/img/service-tournage.jpg" alt="Cinema camera on a film set" loading="lazy" decoding="async" width="578" height="520">
+          </div>
+          <p class="mono service-tag">VIDEO PROJECT</p>
+          <h3>Music videos, commercials and commercial videos</h3>
+          <p>Powerful content, high-end visuals, spectacular effects. Bespoke creations that reflect your brand's DNA and leave a lasting impression.</p>
+          <div class="service-formulas">
+            <details open>
+              <summary><strong>Pro Format</strong> — Impact &amp; Elegance</summary>
+              <ul>
+                <li>Meticulous preparation: script, storyboard, staging</li>
+                <li>High-end shoot: precise capture, cinema quality</li>
+                <li>Expert editing: immersive sound design, bespoke VFX</li>
+                <li>Immersive format: up to 1 min 30 to make an impression</li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>Express Format</strong> — Simplicity &amp; Efficiency</summary>
+              <ul>
+                <li>Express shoot: 2 hours of targeted capture</li>
+                <li>Simple edit: punchy, clean, impactful</li>
+                <li>Short format: up to 30 seconds, perfect for social media</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-media">
+            <img src="../assets/img/service-retouche.jpg" alt="Photo retouching in post-production software: macro water droplets" loading="lazy" decoding="async" width="631" height="520">
+          </div>
+          <p class="mono service-tag">PHOTO PROJECT</p>
+          <h3>Advertising composites, key visuals, album covers &amp; art direction</h3>
+          <p>Striking visuals that elevate your identity. Every visual is designed to grab attention and strengthen your image.</p>
+          <ul class="service-list">
+            <li>High-end retouching: optimised details, contrast and colour</li>
+            <li>Photo compositing: coherent, impactful images</li>
+            <li>Cover design: bespoke visuals for albums, products or projects</li>
+            <li>Product &amp; campaign visuals: advertising packshots with special effects and bespoke integration</li>
+            <li>A unique aesthetic: visuals that make an impression at first glance</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-media">
+            <img src="../assets/img/service-etalonnage.jpg" alt="Video color grading: before-and-after comparison and color curves" loading="lazy" decoding="async" width="605" height="520">
+          </div>
+          <p class="mono service-tag">AUDIOVISUAL PRODUCTION</p>
+          <h3>Web series, short films, commercials, motion design</h3>
+          <p>High-end productions designed to captivate and tell stories — projects made to leave a mark.</p>
+          <ul class="service-list">
+            <li>Full production: art direction, screenwriting and bespoke staging</li>
+            <li>Cinematic editing: careful work, rhythm, emotion, and quality VFX</li>
+            <li>Animation and motion design: modern, dynamic creations, seamlessly integrated</li>
+            <li>Commercials and web series: for brands, creators or businesses that want to stand out</li>
+            <li>Adapted formats: content designed for maximum immersion, on any platform</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="devis-box reveal" aria-label="Pricing">
+        <p class="mono devis-tag">QUOTES</p>
+        <p>Our rates are quoted individually, so we can match your exact needs and the specifics of each project. Requests are reviewed as quickly as possible, and a detailed quote will be sent for the services you want.</p>
+        <a class="btn btn-primary" href="mailto:vinsovfx@gmail.com?subject=Quote%20request%20%E2%80%94%20VIN%27SO%20VFX">Get a quote</a>
+      </aside>
+    </section>
+
+    <!-- ============ PROCESSUS ============ -->
+    <section class="section" id="processus" aria-labelledby="titre-processus">
+      <div class="section-head">
+        <p class="section-kicker">SEQUENCE 03 — PROCESS</p>
+        <h2 class="section-title" id="titre-processus">How a project runs</h2>
+        <p class="section-intro">Because every image tells a story, every project follows the same roadmap.</p>
+      </div>
+      <ol class="process-list">
+        <li class="reveal"><span class="mono process-step">01</span><h3>Brief &amp; quote</h3><p>You describe what you need by email. Fast review, detailed personalised quote.</p></li>
+        <li class="reveal"><span class="mono process-step">02</span><h3>Preparation</h3><p>Script, storyboard and staging: every shot is planned before the shoot.</p></li>
+        <li class="reveal"><span class="mono process-step">03</span><h3>Shoot</h3><p>Precise capture, cinema quality — in the studio or on location.</p></li>
+        <li class="reveal"><span class="mono process-step">04</span><h3>Post-production</h3><p>Editing, VFX, color grading and sound design: the image becomes a film.</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ MANIFESTE ============ -->
+    <section class="section section-manifeste" id="manifeste" aria-labelledby="titre-manifeste">
+      <p class="section-kicker">SEQUENCE 04 — MANIFESTO</p>
+      <h2 class="section-title" id="titre-manifeste">Every image tells a story.</h2>
+      <div class="manifeste-body">
+        <p>At VIN'SO VFX, we bring your vision to light. We create striking, elegant visuals for our clients, tailored to each project — advertising content, events or artistic productions.</p>
+        <p>Cinematic effects, dynamic editing or immersive storytelling: VIN'SO VFX meets your requirements with creativity and expertise.</p>
+      </div>
+      <dl class="manifeste-facts">
+        <div><dt class="mono">BASED IN</dt><dd>Le Mans, France</dd></div>
+        <div><dt class="mono">COVERAGE</dt><dd>Worldwide — shoots and remote post-production</dd></div>
+        <div><dt class="mono">CLIENTS</dt><dd>Artists, brands, businesses</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ ÉPILOGUE ============ -->
+    <section class="scrollvid" id="epilogue" data-src="../assets/vid/anatomie-camera.mp4" data-reverse="1" aria-label="The camera rebuilds itself as you scroll">
+      <h2 class="sr-only">The camera rebuilds itself</h2>
+      <div class="scrollvid-pin">
+        <video class="scrollvid-video" muted playsinline preload="none" poster="../assets/img/epilogue-poster.webp" aria-hidden="true" disablepictureinpicture>
+          <source src="../assets/vid/anatomie-camera.mp4" type="video/mp4">
+        </video>
+        <div class="scrollvid-fallback" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-contact" id="contact" aria-labelledby="titre-contact">
+      <div class="section-head">
+        <p class="section-kicker">SEQUENCE 05 — END CREDITS</p>
+        <h2 class="section-title" id="titre-contact">Contact us</h2>
+        <p class="section-intro">For more information, write to us. Fast reply, detailed quote.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-main">
+          <button class="email-copy" id="email-copy" aria-label="Copy the email address vinsovfx@gmail.com">
+            <span class="mono email-label">EMAIL — CLICK TO COPY</span>
+            <span class="email-address">vinsovfx@gmail.com</span>
+          </button>
+          <p class="email-hint mono" id="email-hint" aria-live="polite"></p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:vinsovfx@gmail.com?subject=Quote%20request%20%E2%80%94%20VIN%27SO%20VFX">Write an email</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/vinso.974" target="_blank" rel="noopener">Instagram — @vinso.974</a>
+          </div>
+          <form class="studio-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="9045e996-8bcf-4b9c-9172-6f8eed3794aa">
+            <input type="hidden" name="subject" value="New project brief — VIN'SO VFX">
+
+            <p class="mono" style="color: var(--ambre); margin: 0 0 4px;">START A PROJECT — EXPRESS BRIEF</p>
+
+            <div class="studio-form-row">
+              <input type="text" name="name" class="studio-input" placeholder="Name / Artist / Brand *" required>
+              <input type="email" name="email" class="studio-input" placeholder="Your business email *" required>
+            </div>
+
+            <select name="project_type" class="studio-select" required>
+              <option value="" disabled selected>Type of production you need *</option>
+              <option value="Music Video / VFX">Music Video &amp; VFX</option>
+              <option value="Brand Film / Commercial">Brand Film / Commercial</option>
+              <option value="Post-production / VFX / 3D only">Post-production, VFX &amp; Compositing only</option>
+              <option value="Product Visual / Album Cover">Product Key Visual / Album Cover</option>
+              <option value="Other">Other audiovisual project</option>
+            </select>
+
+            <textarea name="message" class="studio-textarea" placeholder="Describe your project, your visual references, your deadlines or your estimated budget..." required></textarea>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">Send the brief to the studio</button>
+          </form>
+        </div>
+        <div class="contact-map">
+          <div class="map-facade" id="map-facade">
+            <p class="mono">MAP — LE MANS · FRANCE</p>
+            <p>The Google map only loads at your request, to respect your privacy.</p>
+            <button class="btn btn-ghost" id="map-load" type="button">Show the map</button>
+          </div>
+          <iframe id="map-frame" title="Map — Le Mans and its region" data-src="https://www.google.com/maps?q=Le+Mans,+Sarthe&amp;z=11&amp;output=embed" referrerpolicy="no-referrer-when-downgrade" allowfullscreen hidden></iframe>
+          <p class="mono map-caption">AREA — LE MANS · FRANCE · 48.00°N 0.20°E</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="../assets/logo.svg?v=3" alt="VIN'SO VFX" width="110" height="30" loading="lazy">
+      <p class="mono footer-line">© 2026 VIN'SO VFX — ALL RIGHTS RESERVED</p>
+      <nav class="footer-nav" aria-label="Footer links">
+        <a href="mentions-legales.html" class="legal-link">Legal notices</a>
+        <a href="mailto:vinsovfx@gmail.com">vinsovfx@gmail.com</a>
+        <a href="https://www.instagram.com/vinso.974" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============ OVERLAY VIDÉO ============ -->
+  <div class="overlay" id="video-overlay" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+    <div class="overlay-backdrop" data-close></div>
+    <div class="overlay-box">
+      <div class="overlay-head">
+        <p class="mono overlay-title" id="video-overlay-title">PLAYBACK</p>
+        <button class="overlay-close" data-close aria-label="Close the player">✕</button>
+      </div>
+      <div class="overlay-player" id="video-player"></div>
+      <p class="mono overlay-hint">ESC TO CLOSE · PLAYS IN PLACE</p>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX IMAGE ============ -->
+  <div class="overlay" id="image-overlay" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="overlay-backdrop" data-close></div>
+    <div class="overlay-box overlay-box-image">
+      <div class="overlay-head">
+        <p class="mono overlay-title" id="image-overlay-title">IMAGE</p>
+        <button class="overlay-close" data-close aria-label="Close the viewer">✕</button>
+      </div>
+      <img id="lightbox-img" src="" alt="">
+      <p class="mono overlay-hint">ESC TO CLOSE</p>
+    </div>
+  </div>
+
+  <script src="../js/main-en.js" defer></script>
+</body>
+</html>
